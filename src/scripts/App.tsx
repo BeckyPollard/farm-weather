@@ -1,11 +1,17 @@
-import React from 'react';
-import HelloWorld from './components/HelloWorld';
+import React, {useState} from 'react';
+import CurrentWeather from './components/CurrentWeather';
 
 function App() {
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial');
+
+  console.info(setUnit, unit);
   return (
-    <HelloWorld 
-      greeting='Hello World'
-    />
+    <>
+      <h1>Pollard Farm Weather</h1>
+      <CurrentWeather 
+        unit='imperial'
+      />
+    </>
   );
 };
 
