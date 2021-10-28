@@ -1,0 +1,39 @@
+{
+  "name": "project-quickstart-v3",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Quick setup template for personal projects.",
+  "main": "main.tsx",
+  "scripts": {
+    "start": "webpack serve --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "author": "Becky Pollard",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^16.10.2",
+    "@types/react": "^17.0.27",
+    "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.3.0",
+    "eslint": "^7.32.0",
+    "file-loader": "^6.0.0",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.3.0",
+    "node-sass": "^6.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass-loader": "^12.1.0",
+    "source-map": "^0.7.3",
+    "style-loader": "^3.3.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.3",
+    "webpack": "^5.56.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.3.0",
+    "webpack-merge": "^5.8.0"
+  }
+}
