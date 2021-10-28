@@ -1,4 +1,5 @@
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -12,6 +13,7 @@ module.exports = {
       filename: 'index.html',
       favicon: './src/assets/images/favicon.ico',
     }),
+    new Dotenv(),
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx']
