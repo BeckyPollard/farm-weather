@@ -37,7 +37,7 @@ function App() {
   };
 
   console.log(weather)
-  console.info('quieting ts erros', setUnit, unit);
+  console.debug('quieting ts erros', setUnit, unit);
   return (
     <div className='wrapper'>
       <Header

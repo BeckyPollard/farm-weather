@@ -9,7 +9,6 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
   const time = props.time
     ? DateTime.fromISO(new Date(props.time * 1000).toISOString()).toFormat('ccc MMMM dd, yyyy - h:mm a')
     : '';
-  console.log(time);
   return (
     <header>
         <h1>Pollard Farm</h1>
