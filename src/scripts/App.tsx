@@ -31,6 +31,7 @@ function App() {
         <Header
         />
         <CurrentWeather 
+          unit={unit}
         />
       </div>
     );
@@ -40,7 +41,7 @@ function App() {
   const timeHours = time.getHours();
 
   console.log(timeHours, weather)
-  console.debug('quieting ts erros', setUnit, unit);
+  console.debug('quieting ts erros', setUnit);
   return (
     <div className='wrapper'>
       <Header
@@ -48,8 +49,9 @@ function App() {
         time={time}
       />
       <CurrentWeather 
-        weather={weather}
         time={time}
+        unit={unit}
+        weather={weather}
       />
     </div>
   );

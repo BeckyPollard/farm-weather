@@ -2,8 +2,9 @@ import React from 'react';
 import { Weather } from '../../types';
 
 type CurrentWeatherProps = {
-  weather?: Weather,
   time?: Date,
+  unit: 'imperial' | 'metric',
+  weather?: Weather,
 };
 export default function CurrentWeather(props: CurrentWeatherProps) {
 
@@ -19,13 +20,26 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
           subject='Loading...'
         />
         <WeatherItemLoading
+          icon='air'
+          subject='Loading...'
+        />
+        <WeatherItemLoading
           icon='water_drop'
           subject='Loading...'
         />
         <WeatherItemLoading
-          icon='air'
+          icon='speed'
           subject='Loading...'
         />
+        <WeatherItemLoading
+          icon='light_mode'
+          subject='Loading...'
+        />
+        <WeatherItemLoading
+          icon='opacity'
+          subject='Loading...'
+        />
+        <CreditsItem />
       </div>
     );
   };
@@ -46,47 +60,60 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
         subject='Temperature'
         temp={props.weather.imperial.temp || '0'}
         tempFeel={tempFeel}
+        unit='imperial'
       />
       <WeatherItem
         subject='Rain Gage'
         icon='water_drop'
         rain={props.weather.imperial.precipTotal || '0'}
         rainRate={props.weather.imperial.percipRate || '0'}
-      />
-      <WeatherItem
-        subject='Humidity'
-        icon='water_drop'
-        humidity={props.weather.humidity}
+        unit='imperial'
       />
       <WeatherItem
         subject='Wind'
         icon='air'
-        windGust={props.weather.imperial.windGust}
-        windSpeed={props.weather.imperial.windSpeed}
+        unit='imperial'
+        windGust={props.weather.imperial.windGust || '0'}
+        windSpeed={props.weather.imperial.windSpeed || '0'}
+      />
+      <WeatherItem
+        subject='Humidity'
+        icon='water_drop'
+        humidity={props.weather.humidity || '0'}
+        unit='imperial'
       />
       <WeatherItem
         subject='Air Pressure'
         icon='speed'
         pressure={props.weather.imperial.pressure || '0'}
+        unit='imperial'
       />
       <WeatherItem
         subject='UV Index'
         icon='light_mode'
+        unit='imperial'
         uv={props.weather.uv || '0'}
       />
       <WeatherItem
         subject='Dew Point'
         icon='opacity'
         dewPoint={props.weather.imperial.dewpt || '0'}
+        unit='imperial'
       />
-      <div className="credits">
-        <h2>Website Credits</h2>
-        <span aria-hidden='true' className="material-icons-outlined">
-          live_help
-        </span>
-        <p>API by <a href={`https://www.wunderground.com/`}>Wunderground</a></p>
-        <p>Website by <a href={`https://www.becky.dev/`}>Becky Pollard</a></p>
-      </div>
+      <CreditsItem />
+    </div>
+  );
+};
+
+const CreditsItem = () => {
+  return (
+    <div className="credits">
+      <h2>Website Credits</h2>
+      <span aria-hidden='true' className="material-icons-outlined">
+        live_help
+      </span>
+      <p>API by <a href={`https://www.wunderground.com/`}>Wunderground</a></p>
+      <p>Website by <a href={`https://www.becky.dev/`}>Becky Pollard</a></p>
     </div>
   );
 };
@@ -109,7 +136,7 @@ const WeatherItemLoading = (props: WeatherItemLoadingProps) => {
 
 type WeatherItemProps = {
   dewPoint?: number | string,
-  humidity?: number,
+  humidity?: number | string,
   icon: string,
   pressure?: number | string,
   rain?: number | string,
@@ -117,10 +144,10 @@ type WeatherItemProps = {
   subject: string,
   temp?: number | string,
   tempFeel?: number | string,
-  // unit: string,
-  windGust?: number,
-  windSpeed?: number,
+  unit: 'imperial' | 'metric',
   uv?: number | string,
+  windGust?: number | string,
+  windSpeed?: number | string,
 };
 const WeatherItem = (props: WeatherItemProps) => {
   return (
@@ -154,7 +181,7 @@ const WeatherItem = (props: WeatherItemProps) => {
       {(props.windGust && props.windSpeed)
         ? <>
             <p>{`${props.windSpeed} mph`}</p>
-            <p>{`with ${props.windGust} mph gusts`}</p>
+            <p>{props.windSpeed !== '0' ? `with ${props.windGust} mph gusts` : 'No wind'}</p>
           </>
         : null
       }
