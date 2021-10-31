@@ -9,6 +9,7 @@ function App() {
 
   const getCurrentWeather = () => {
     const key = process.env.API_KEY;
+    console.log(key);
     const station = 'ICHATH53';
     fetch(`https://api.weather.com/v2/pws/observations/current?stationId=${station}&format=json&units=e&apiKey=${key}&numericPrecision=decimal`)
       .then(response => response.json())
