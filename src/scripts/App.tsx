@@ -36,16 +36,20 @@ function App() {
     );
   };
 
-  console.log(weather)
+  const time = new Date(weather.epoch * 1000)
+  const timeHours = time.getHours();
+
+  console.log(timeHours, weather)
   console.debug('quieting ts erros', setUnit, unit);
   return (
     <div className='wrapper'>
       <Header
         station={weather.stationID}
-        time={weather.epoch}
+        time={time}
       />
       <CurrentWeather 
         weather={weather}
+        time={time}
       />
     </div>
   );

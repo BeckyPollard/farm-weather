@@ -3,11 +3,11 @@ import { DateTime } from 'luxon';
 
 type CurrentWeatherProps = {
   station?: string,
-  time?: number,
+  time?: Date,
 }
 export default function CurrentWeather(props: CurrentWeatherProps) {
   const time = props.time
-    ? DateTime.fromISO(new Date(props.time * 1000).toISOString()).toFormat('ccc MMMM dd, yyyy - h:mm a')
+    ? DateTime.fromISO(new Date(props.time).toISOString()).toFormat('ccc MMMM dd, yyyy - h:mm a')
     : '';
   return (
     <header>
