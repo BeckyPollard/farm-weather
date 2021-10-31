@@ -3,6 +3,7 @@ import { Weather } from '../../types';
 
 type CurrentWeatherProps = {
   weather?: Weather,
+  time?: Date,
 };
 export default function CurrentWeather(props: CurrentWeatherProps) {
 
@@ -55,14 +56,37 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
       <WeatherItem
         subject='Humidity'
         icon='water_drop'
-        humidity={props.weather?.humidity}
+        humidity={props.weather.humidity}
       />
       <WeatherItem
         subject='Wind'
         icon='air'
-        windGust={props.weather?.imperial.windGust}
-        windSpeed={props.weather?.imperial.windSpeed}
+        windGust={props.weather.imperial.windGust}
+        windSpeed={props.weather.imperial.windSpeed}
       />
+      <WeatherItem
+        subject='Air Pressure'
+        icon='speed'
+        pressure={props.weather.imperial.pressure || '0'}
+      />
+      <WeatherItem
+        subject='UV Index'
+        icon='light_mode'
+        uv={props.weather.uv || '0'}
+      />
+      <WeatherItem
+        subject='Dew Point'
+        icon='opacity'
+        dewPoint={props.weather.imperial.dewpt || '0'}
+      />
+      <div className="credits">
+        <h2>Website Credits</h2>
+        <span aria-hidden='true' className="material-icons-outlined">
+          live_help
+        </span>
+        <p>API by <a href={`https://www.wunderground.com/`}>Wunderground</a></p>
+        <p>Website by <a href={`https://www.becky.dev/`}>Becky Pollard</a></p>
+      </div>
     </div>
   );
 };
@@ -84,15 +108,19 @@ const WeatherItemLoading = (props: WeatherItemLoadingProps) => {
 };
 
 type WeatherItemProps = {
+  dewPoint?: number | string,
   humidity?: number,
   icon: string,
+  pressure?: number | string,
   rain?: number | string,
   rainRate?: number | string,
   subject: string,
   temp?: number | string,
   tempFeel?: number | string,
+  // unit: string,
   windGust?: number,
   windSpeed?: number,
+  uv?: number | string,
 };
 const WeatherItem = (props: WeatherItemProps) => {
   return (
@@ -105,7 +133,7 @@ const WeatherItem = (props: WeatherItemProps) => {
       {(props.temp && props.tempFeel)
         ? <>
             <p>{`${props.temp}°F`}</p>
-            <p>{`Feels like ${props.tempFeel}°F`}</p>
+            <p>{`feels like ${props.tempFeel}°F`}</p>
           </>
         : null
       }
@@ -113,7 +141,7 @@ const WeatherItem = (props: WeatherItemProps) => {
       {(props.rain && props.rainRate)
         ? <>
             <p>{`${props.rain} in`}</p>
-            <p>{`${props.rainRate} in/hr`}</p>
+            <p>{props.rainRate !== '0' ?? `at a rate of ${props.rainRate} in/hr`}</p>
           </>
         : null
       }
@@ -127,6 +155,27 @@ const WeatherItem = (props: WeatherItemProps) => {
         ? <>
             <p>{`${props.windSpeed} mph`}</p>
             <p>{`with ${props.windGust} mph gusts`}</p>
+          </>
+        : null
+      }
+
+      {props.pressure
+        ? <>
+            <p>{`${props.pressure} in`}</p>
+          </>
+        : null
+      }
+
+      {props.uv
+        ? <>
+            <p>{`${props.uv}`}</p>
+          </>
+        : null
+      }
+
+      {props.dewPoint
+        ? <>
+            <p>{`${props.dewPoint}°F`}</p>
           </>
         : null
       }
