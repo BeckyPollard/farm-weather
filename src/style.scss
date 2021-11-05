@@ -16,7 +16,6 @@ body {
   background: linear-gradient(-140deg, #f2fcfe, var(--colour));
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding: 40px;
 
   .wrapper {
     padding: 20px;
@@ -26,7 +25,7 @@ body {
 
   .weather-report {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
     grid-gap: 20px;
     width: 100%;
   }
