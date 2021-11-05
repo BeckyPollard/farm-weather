@@ -1,6 +1,12 @@
 import React from 'react';
 import { Weather } from '../../types';
 
+const convertToCelsius = (f: string | number) => {
+  return (
+    ((+f - 32) * .5556).toFixed(1)
+  );
+};
+
 type CurrentWeatherProps = {
   time?: Date,
   unit: 'imperial' | 'metric',
@@ -159,8 +165,8 @@ const WeatherItem = (props: WeatherItemProps) => {
 
       {(props.temp && props.tempFeel)
         ? <>
-            <p>{`${props.temp}°F`}</p>
-            <p>{`feels like ${props.tempFeel}°F`}</p>
+            <p>{`${props.temp}°F / ${convertToCelsius(props.temp)}°C`}</p>
+            <p>{`feels like ${props.tempFeel}°F or ${convertToCelsius(props.temp)}°C`}</p>
           </>
         : null
       }
@@ -202,7 +208,7 @@ const WeatherItem = (props: WeatherItemProps) => {
 
       {props.dewPoint
         ? <>
-            <p>{`${props.dewPoint}°F`}</p>
+            <p>{`${props.dewPoint}°F / ${convertToCelsius(props.dewPoint)}°C`}</p>
           </>
         : null
       }
