@@ -3,9 +3,9 @@ import CurrentWeather from './components/CurrentWeather';
 import Header from './components/Header';
 
 function App() {
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial');
   const [weather, setWeather] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
+  const [theme, setTheme] = useState<string>('theme-day-clear');
 
   const getCurrentWeather = () => {
     const key = process.env.API_KEY;
@@ -24,35 +24,35 @@ function App() {
     getCurrentWeather();
     setLoading(false)
   }, []);
+  console.log('🌦 Weather API from Wunderground:', weather);
 
   if (loading || !weather) {
     return (
-      <div className='wrapper'>
-        <Header
-        />
-        <CurrentWeather 
-          unit={unit}
-        />
+      <div className={`theme ${theme}`}>
+        <div className='wrapper'>
+          <Header/>
+          <CurrentWeather/>
+        </div>
       </div>
     );
   };
 
-  const time = new Date(weather.epoch * 1000)
-  const timeHours = time.getHours();
+  const time = new Date(weather.epoch * 1000);
 
-  console.log(timeHours, weather)
-  console.debug('quieting ts erros', setUnit);
+  console.log(setTheme);
+
   return (
-    <div className='wrapper'>
-      <Header
-        station={weather.stationID}
-        time={time}
-      />
-      <CurrentWeather 
-        time={time}
-        unit={unit}
-        weather={weather}
-      />
+    <div className={`theme ${theme}`}>
+      <div className='wrapper'>
+        <Header
+          station={weather.stationID}
+          time={time}
+        />
+        <CurrentWeather 
+          time={time}
+          weather={weather}
+        />
+      </div>
     </div>
   );
 };

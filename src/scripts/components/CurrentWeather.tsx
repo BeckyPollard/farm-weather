@@ -9,7 +9,6 @@ const convertToCelsius = (f: string | number) => {
 
 type CurrentWeatherProps = {
   time?: Date,
-  unit: 'imperial' | 'metric',
   weather?: Weather,
 };
 export default function CurrentWeather(props: CurrentWeatherProps) {
