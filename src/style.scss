@@ -2,21 +2,24 @@
 @import './styles/typography.scss';
 @import './styles/header.scss';
 
-.theme-day-clear {
-  --colour: #1c92d2;
-  background: #1c92d2;
-  background: -webkit-linear-gradient(-140deg, #f2fcfe, var(--colour));  /* Chrome 10-25, Safari 5.1-6 */
+.theme-day-clear { //wip concept
+  --colour-rgb: 28, 146, 210;
+  --colour: rgb(var(--colour-rgb));
+  background: var(--colour); //fallback
+  background: -webkit-linear-gradient(-140deg, #f2fcfe, var(--colour));
   background: linear-gradient(-140deg, #f2fcfe, var(--colour));
 }
 
 body {
-  --colour: #1c92d2;
-  background: #1c92d2;
-  background: -webkit-linear-gradient(-140deg, #f2fcfe, var(--colour));  /* Chrome 10-25, Safari 5.1-6 */
+  --colour-rgb: 28, 146, 210;
+  --colour: rgb(var(--colour-rgb));
+  background: var(--colour); //fallback
+  background: -webkit-linear-gradient(-140deg, #f2fcfe, var(--colour));
   background: linear-gradient(-140deg, #f2fcfe, var(--colour));
   background-repeat: no-repeat;
   background-attachment: fixed;
-
+  height: 100vh;
+  
   .wrapper {
     padding: 20px;
     max-width: 1000px;
@@ -31,7 +34,7 @@ body {
   }
 
   .item, .credits {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
     padding: 2rem;
     text-align: center;
@@ -56,6 +59,7 @@ body {
     p:first-of-type {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
+      font-weight: 600;
     }
   }
 

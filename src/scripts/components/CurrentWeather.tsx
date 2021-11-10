@@ -34,7 +34,7 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
           subject='Loading...'
         />
         <WeatherItemLoading
-          icon='speed'
+          icon='opacity'
           subject='Loading...'
         />
         <WeatherItemLoading
@@ -42,7 +42,7 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
           subject='Loading...'
         />
         <WeatherItemLoading
-          icon='opacity'
+          icon='speed'
           subject='Loading...'
         />
         <CreditsItem />
@@ -89,9 +89,9 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
         unit='imperial'
       />
       <WeatherItem
-        subject='Air Pressure'
-        icon='speed'
-        pressure={props.weather.imperial.pressure || '0'}
+        subject='Dew Point'
+        icon='opacity'
+        dewPoint={props.weather.imperial.dewpt || '0'}
         unit='imperial'
       />
       <WeatherItem
@@ -101,9 +101,9 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
         uv={props.weather.uv || '0'}
       />
       <WeatherItem
-        subject='Dew Point'
-        icon='opacity'
-        dewPoint={props.weather.imperial.dewpt || '0'}
+        subject='Air Pressure'
+        icon='speed'
+        pressure={props.weather.imperial.pressure || '0'}
         unit='imperial'
       />
       <CreditsItem />
