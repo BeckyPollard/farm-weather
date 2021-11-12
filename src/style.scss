@@ -2,6 +2,10 @@
 @import './styles/typography.scss';
 @import './styles/header.scss';
 
+.theme {
+ height: 100vh; 
+}
+
 .theme-day-clear { //wip concept
   --colour-rgb: 28, 146, 210;
   --colour: rgb(var(--colour-rgb));
