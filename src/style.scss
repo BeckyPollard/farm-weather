@@ -12,7 +12,7 @@ body {
 .theme- {
   &day-clear {
     --colour: #1c92d2;
-    --text: #052d42;
+    --text: #002341;
     color: var(--text);
     background: var(--colour); //fallback
     background: -webkit-linear-gradient(-140deg, #f2fcfe, var(--colour)) fixed no-repeat;
