@@ -8,7 +8,7 @@ function App() {
   const [weatherTime, setWeatherTime] = useState<Date>();
   const [loading, setLoading] = useState<boolean>(true);
   const [theme, setTheme] = useState<string>('theme-day-clear');
-  // const [daytime, setDaytime] = useState<boolean>(true);
+  // const [daytime, setDaytime] = useState<boolean>(true); // WIP idea to track sunrise/sunset
 
   const getCurrentWeather = () => {
     const key = process.env.API_KEY;
@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     getCurrentWeather();
 
-    setLoading(false)
+    setLoading(false);
   }, []);
   
   if (loading || !weather) {
@@ -39,9 +39,10 @@ function App() {
       </div>
     );
   };
-  console.log('🌦 Weather API from Wunderground:', weather);
 
+  console.log('🌦 Weather API from Wunderground:', weather); //to show dad how the data looks
   
+  // WIP idea to track sunrise/sunset
   const setSun = (time: Date) => {
     const sun = SunCalc.getTimes(time, weather.lat, weather.lon)
     console.log('sunset = ', sun.sunset);
@@ -49,9 +50,10 @@ function App() {
     console.log('current time = ', time);
   }
 
-
-
-  console.info('shuttup typescript', setTheme, theme, setSun); //quiet typescript
+  const shuttupTypescript = true; // TEMP!! ONLY FOR WIP WORK!
+  if (!shuttupTypescript) { //silence TS unused errors
+    console.info('shuttup typescript', setTheme, theme, setSun);
+  }
 
   return (
     <div className='wrapper'>
