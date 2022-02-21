@@ -82,6 +82,12 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
         windSpeed={props.weather.imperial.windSpeed || '0'}
       />
       <WeatherItem
+        subject='Wind Direction'
+        icon='flag'
+        unit='imperial'
+        windDir={props.weather.winddir || 0}
+      />
+      <WeatherItem
         subject='Humidity'
         icon='water_drop'
         humidity={props.weather.humidity || '0'}
@@ -153,12 +159,54 @@ type WeatherItemProps = {
   uv?: number | string,
   windGust?: number | string,
   windSpeed?: number | string,
+  windDir?: number,
 };
 const WeatherItem = (props: WeatherItemProps) => {
+
+  const windDirection = (dir: number) => {
+    if ( dir >349 && dir <=360 || dir <=11 ) { //N
+      return ('N');
+    } else if ( dir > 11 && dir <= 34) { //NNE
+      return ('NNE')
+    } else if ( dir > 34 && dir <= 56) { //NE
+      return ('NE')
+    } else if ( dir > 56 && dir <= 79) { //ENE
+      return ('ENE')
+    } else if ( dir > 79 && dir <= 101) { //E
+      return ('E')
+    } else if ( dir > 101 && dir <= 124) { //ESE
+      return ('ESE')
+    } else if ( dir > 124 && dir <= 146) { //SE
+      return ('SE')
+    } else if ( dir > 146 && dir <= 169) { //SSE
+      return ('SSE')
+    } else if ( dir > 169 && dir <= 191) { //S
+      return ('S')
+    } else if ( dir > 191 && dir <= 214) {  //SSW
+      return ('SSW')
+    } else if ( dir > 214 && dir <= 236) { //SW
+      return ('SW')
+    } else if ( dir > 236 && dir <= 259) { //WSW
+      return ('WSW')
+    } else if ( dir > 259 && dir <= 281) { //W
+      return ('W')
+    } else if ( dir > 281 && dir <= 304) { //WNW
+      return ('WNW')
+    } else if ( dir > 304 && dir <= 326) { //NW
+      return ('NW')
+    } else if ( dir > 326 && dir <= 349) { //NNW
+      return ('NW')
+    };
+    return ('ERROR');
+  };
+
   return (
     <div className="item">
       <h2>{props.subject}</h2>
-      <span aria-hidden='true' className="material-icons-outlined">
+      <span
+        aria-hidden='true'
+        className={`material-icons${props.subject !== 'Wind Direction' ? '-outlined' : ''}`}
+      >
         {props.icon}
       </span>
 
@@ -187,6 +235,13 @@ const WeatherItem = (props: WeatherItemProps) => {
         ? <>
             <p>{`${props.windSpeed} mph`}</p>
             <p>{props.windSpeed !== '0' ? `with ${props.windGust} mph gusts` : 'No wind'}</p>
+          </>
+        : null
+      }
+
+      {(props.windDir)
+        ? <>
+            <p>{`${windDirection(props.windDir)}`}</p>
           </>
         : null
       }
