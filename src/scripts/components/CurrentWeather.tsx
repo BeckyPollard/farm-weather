@@ -29,6 +29,10 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
           subject='Loading...'
         />
         <WeatherItemLoading
+          icon='flag'
+          subject='Loading...'
+        />
+        <WeatherItemLoading
           icon='water_drop'
           subject='Loading...'
         />
@@ -137,7 +141,7 @@ const WeatherItemLoading = (props: WeatherItemLoadingProps) => {
   return (
     <div className="item">
       <h2>{props.subject}</h2>
-      <span aria-hidden='true' className="material-icons-outlined">
+      <span aria-hidden='true' className={`material-icons${props.icon !== 'flag' ? '-outlined' : ''}`}>
         {props.icon}
       </span>
       <p>0</p>
@@ -205,7 +209,7 @@ const WeatherItem = (props: WeatherItemProps) => {
       <h2>{props.subject}</h2>
       <span
         aria-hidden='true'
-        className={`material-icons${props.subject !== 'Wind Direction' ? '-outlined' : ''}`}
+        className={`material-icons${props.icon !== 'flag' ? '-outlined' : ''}`}
       >
         {props.icon}
       </span>
