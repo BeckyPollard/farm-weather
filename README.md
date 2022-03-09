@@ -7,6 +7,11 @@ A simple website to display easy-to-read data from a weather station.
 Weather station API provided by [Wunderground](https://www.wunderground.com/).
 <br><br>
 
+| <img width=150 src='https://user-images.githubusercontent.com/52248161/157500010-29199707-ee05-4809-bb43-c1d9bdee7298.jpg' /> | Data captured with:<br>Ecowitt HP2551 Wi-Fi Weather Station |
+| -- | -- |
+
+<br>
+
 ## 🌞 View The Project
 ### → https://pollardweather.com/
 <br>
