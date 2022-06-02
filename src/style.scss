@@ -78,6 +78,14 @@ body {
     margin-bottom: 0.5rem;
     font-weight: 600;
   }
+&.itemError {
+  opacity: 0.6;
+
+  .itemErrorText {
+    margin-top: 0.6rem;
+    font-size: 1.2rem;
+  }
+}
 }
 
 .credits {
