@@ -73,13 +73,18 @@ body {
 }
 
 .item {
-  p:first-of-type {
+  p:first-of-type:not(.itemErrorText) {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
   }
 &.itemError {
   opacity: 0.6;
+  background-color: #007ebdb3;
+  
+    >* {
+      color: #000;
+    }
 
   .itemErrorText {
     margin-top: 0.6rem;
