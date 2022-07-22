@@ -19,8 +19,8 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
         <WeatherItemLoading icon='water_drop' subject='Loading...' />
         <WeatherItemLoading icon='air' subject='Loading...' />
         <WeatherItemLoading icon='flag' subject='Loading...' />
-        <WeatherItemLoading icon='water_drop' subject='Loading...' />
-        <WeatherItemLoading icon='opacity' subject='Loading...' />
+        {/* <WeatherItemLoading icon='water_drop' subject='Loading...' />
+        <WeatherItemLoading icon='opacity' subject='Loading...' /> */}
         <WeatherItemLoading icon='light_mode' subject='Loading...' />
         <WeatherItemLoading icon='speed' subject='Loading...' />
         <CreditsItem />
@@ -66,7 +66,7 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
         unit='imperial'
         windDir={props.weather.winddir || 0}
       />
-      <WeatherItem
+      {/* <WeatherItem
         subject='Humidity'
         icon='water_drop'
         humidity={props.weather.humidity || '0'}
@@ -80,7 +80,7 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
         icon='opacity'
         dewPoint={props.weather.imperial.dewpt || '0'}
         unit='imperial'
-      />
+      /> */}
       <WeatherItem
         subject='UV Index'
         icon='light_mode'
