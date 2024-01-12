@@ -19,8 +19,10 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
         <WeatherItemLoading icon='water_drop' subject='Loading...' />
         <WeatherItemLoading icon='air' subject='Loading...' />
         <WeatherItemLoading icon='flag' subject='Loading...' />
+        {/* HUMIDIY DATA REMOVED DUE TO HARDWARE ERROR */}
         {/* <WeatherItemLoading icon='water_drop' subject='Loading...' />
         <WeatherItemLoading icon='opacity' subject='Loading...' /> */}
+        {/* HUMIDIY DATA REMOVED DUE TO HARDWARE ERROR */}
         <WeatherItemLoading icon='light_mode' subject='Loading...' />
         <WeatherItemLoading icon='speed' subject='Loading...' />
         <CreditsItem />
@@ -66,6 +68,7 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
         unit='imperial'
         windDir={props.weather.winddir || 0}
       />
+      {/* HUMIDIY DATA REMOVED DUE TO HARDWARE ERROR */}
       {/* <WeatherItem
         subject='Humidity'
         icon='water_drop'
@@ -81,6 +84,7 @@ export default function CurrentWeather(props: CurrentWeatherProps) {
         dewPoint={props.weather.imperial.dewpt || '0'}
         unit='imperial'
       /> */}
+      {/* HUMIDIY DATA REMOVED DUE TO HARDWARE ERROR */}
       <WeatherItem
         subject='UV Index'
         icon='light_mode'
