@@ -11,12 +11,16 @@ body {
 
 .theme- {
   &day-clear {
-    --colour: #1c92d2;
+    --colour: #479cf1;
     --text: #002341;
     color: var(--text);
     background: var(--colour); //fallback
-    background: -webkit-linear-gradient(-140deg, #f2fcfe, var(--colour)) fixed no-repeat;
-    background: linear-gradient(-140deg, #f2fcfe, var(--colour)) fixed no-repeat;
+    // background: -webkit-linear-gradient(-140deg, #f2fcfe, var(--colour)) fixed no-repeat;
+    // background: linear-gradient(-140deg, #f2fcfe, var(--colour)) fixed no-repeat;
+    // background-color: linear-gradient(-140deg, #f2fcfe, var(--colour));
+    // background-color: -webkit-linear-gradient(-140deg, #f2fcfe, var(--colour)) fixed no-repeat;
+    background-image: url(../src/assets/images/day-clear.jpg);
+    background-size: cover;
   }
   &day-cloudy {
     --colour: #37789b;
