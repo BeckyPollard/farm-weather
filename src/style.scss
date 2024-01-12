@@ -3,7 +3,6 @@
 @import './styles/header.scss';
 
 body {
-  background: #222;
   --colour: #666;
   transition: background ease 1s;
   background: var(--colour); //fallback
@@ -41,7 +40,7 @@ body {
     }
   }
 }
-  
+
 .wrapper {
   padding: 20px;
   max-width: 1000px;
