@@ -10,7 +10,7 @@ export function useTheme(weather: any) {
       if (!weather) return; // this feels dirty?
 
       const date = new Date(weather.obsTimeLocal);
-      const isCloudy = weather.uv === 0; // will have to test this theory
+      // const isCloudy = weather.uv === 0; // THIS IS NOT ACCURATE
       const sun = SunCalc.getTimes(date, weather.lat, weather.lon);
 
       const todayNow = DateTime.fromISO(date.toISOString()).toFormat('X');
@@ -25,11 +25,7 @@ export function useTheme(weather: any) {
         addBodyClass('theme-night');
       }
       if (todayNow >= todaySunrise && todayNow < todaySunset) {
-        if (isCloudy) {
-          addBodyClass('theme-day-cloudy');
-        } else {
-          addBodyClass('theme-day-clear');
-        }
+        addBodyClass('theme-day-clear');
       }
       if (todayNow >= todaySunset && todayNow < todayEnd) {
         addBodyClass('theme-night');
