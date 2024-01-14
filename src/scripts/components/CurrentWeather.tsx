@@ -223,7 +223,7 @@ const WeatherItem = (props: WeatherItemProps) => {
         <>
           <p>{`${props.temp}°F / ${convertToCelsius(props.temp)}°C`}</p>
           <p>{`feels like ${props.tempFeel}°F or ${convertToCelsius(
-            props.temp
+            props.tempFeel
           )}°C`}</p>
         </>
       ) : null}
