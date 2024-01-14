@@ -1,6 +1,6 @@
 # Pollard Farm's Weather Station Report [![Netlify Status](https://api.netlify.com/api/v1/badges/6304e0fe-104e-4fda-b9d1-d5959b091239/deploy-status)](https://app.netlify.com/sites/pollard-weather/deploys)
 
-<img width="700" alt="Website preview" src="https://user-images.githubusercontent.com/52248161/154871233-1b227b5c-020f-43b3-9e62-09400ec60779.png">
+<img width="700" alt="Website preview" src="https://github.com/BeckyPollard/farm-weather/assets/52248161/2d43454e-e3fa-4f65-b2ab-edce001b9b22">
 
 A simple website to display easy-to-read data from a weather station.
 
